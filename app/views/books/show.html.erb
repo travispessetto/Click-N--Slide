@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @book.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @book.description %>
+</p>
+
+<p>
+  <b>Cover file:</b>
+  <% if !@first_page.nil?%>
+  <%= link_to(image_tag(@book.cover_file_url),book_page_path(@book.id,@first_page.id)) %>
+  <%else%>
+  <%= image_tag(@book.cover_file_url)%>
+  <%end%>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %> |
+<%= link_to 'New Page', new_book_page_path(@book.id) %>
