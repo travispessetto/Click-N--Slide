@@ -5875,3 +5875,46 @@ DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>
 Rendered pages/_comments.html.erb (80.0ms)
 Rendered comments/create.js.erb (158.0ms)
 Completed 200 OK in 1174ms (Views: 808.0ms | ActiveRecord: 63.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/config/environment.rb:5)
+  [1m[36mSQL (7.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (7.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (2.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (7.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `books`[0m
+  [1m[35mSQL (3.0ms)[0m  SHOW KEYS FROM `books`
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mSQL (3.0ms)[0m  SHOW KEYS FROM `comments`
+  [1m[36mSQL (13.0ms)[0m  [1mdescribe `pages`[0m
+  [1m[35mSQL (3.0ms)[0m  SHOW KEYS FROM `pages`
+  [1m[36mSQL (16.0ms)[0m  [1mdescribe `users`[0m
+  [1m[35mSQL (3.0ms)[0m  SHOW KEYS FROM `users`
+
+
+Started GET "/books/1/pages/6" for 127.0.0.1 at 2011-09-01 21:23:15 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"6"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 6 LIMIT 1
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 6) ORDER BY id desc LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 6) ORDER BY id desc LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 6) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_57000024_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 6)[0m
+Rendered pages/_comments.html.erb (48.0ms)
+Rendered pages/show.html.erb within layouts/application (444.0ms)
+Completed 200 OK in 1168ms (Views: 825.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:23:23 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"Nice", "page_id"=>"6"}, "commit"=>"Create Comment"}
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (id = 6) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.0ms)[0m  describe `comments`
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('Nice', NULL, 6, '2011-09-02 03:23:24', '2011-09-02 03:23:24')[0m
+  [1m[35mSQL (38.0ms)[0m  COMMIT
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_32223888_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 6)[0m
+Rendered pages/_comments.html.erb (80.0ms)
+Rendered comments/create.js.erb (164.0ms)
+Completed 200 OK in 1221ms (Views: 848.0ms | ActiveRecord: 57.0ms)
