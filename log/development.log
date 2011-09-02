@@ -5338,3 +5338,540 @@ DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>
 Rendered pages/_comments.html.erb (57.0ms)
 Rendered pages/show.html.erb within layouts/application (539.0ms)
 Completed 200 OK in 1216ms (Views: 875.0ms | ActiveRecord: 7.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/config/environment.rb:5)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 20:57:05 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_31513296_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (51.0ms)
+Rendered pages/show.html.erb within layouts/application (440.0ms)
+Completed 200 OK in 1147ms (Views: 762.0ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 20:57:15 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"test ajax", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (20.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('test ajax', NULL, 5, '2011-09-02 02:57:16', '2011-09-02 02:57:16')
+  [1m[36mSQL (50.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 570ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (3.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 20:57:22 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_26623896_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (61.0ms)
+Rendered pages/show.html.erb within layouts/application (473.0ms)
+Completed 200 OK in 1239ms (Views: 829.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 20:57:35 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"hello person ajax test", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('hello person ajax test', NULL, 5, '2011-09-02 02:57:36', '2011-09-02 02:57:36')
+  [1m[36mSQL (54.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 559ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (2.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 20:57:58 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"hello", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('hello', NULL, 5, '2011-09-02 02:57:58', '2011-09-02 02:57:58')
+  [1m[36mSQL (51.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 581ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (2.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 20:58:00 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (7.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_32779404_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (52.0ms)
+Rendered pages/show.html.erb within layouts/application (456.0ms)
+Completed 200 OK in 1243ms (Views: 782.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 20:58:33 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_57408132_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (49.0ms)
+Rendered pages/show.html.erb within layouts/application (576.0ms)
+Completed 200 OK in 1268ms (Views: 902.1ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 20:58:43 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"test again ajax", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (15.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('test again ajax', NULL, 5, '2011-09-02 02:58:43', '2011-09-02 02:58:43')
+  [1m[36mSQL (40.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 669ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (2.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 20:58:48 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_57071280_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (58.0ms)
+Rendered pages/show.html.erb within layouts/application (527.0ms)
+Completed 200 OK in 1257ms (Views: 880.1ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 20:58:57 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"test test test", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (15.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('test test test', NULL, 5, '2011-09-02 02:58:58', '2011-09-02 02:58:58')
+  [1m[36mSQL (50.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 708ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (3.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:00:31 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_30398568_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (52.0ms)
+Rendered pages/show.html.erb within layouts/application (454.0ms)
+Completed 200 OK in 1170ms (Views: 777.0ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:00:42 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"ajax ajax ajax\r\n", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (15.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('ajax ajax ajax\r\n', NULL, 5, '2011-09-02 03:00:42', '2011-09-02 03:00:42')
+  [1m[36mSQL (49.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 528ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (3.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:01:14 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_20936880_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (50.0ms)
+Rendered pages/show.html.erb within layouts/application (436.0ms)
+Completed 200 OK in 1071ms (Views: 747.0ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:01:31 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"ajax rules!!\r\n", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('ajax rules!!\r\n', NULL, 5, '2011-09-02 03:01:31', '2011-09-02 03:01:31')
+  [1m[36mSQL (42.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 562ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (2.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:02:16 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_57069792_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (49.0ms)
+Rendered pages/show.html.erb within layouts/application (528.0ms)
+Completed 200 OK in 1156ms (Views: 832.0ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:02:31 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"ajax rules!! Yes it does!!!\r\n", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('ajax rules!! Yes it does!!!\r\n', NULL, 5, '2011-09-02 03:02:31', '2011-09-02 03:02:31')
+  [1m[36mSQL (44.0ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 518ms
+
+ActionView::MissingTemplate (Missing template pages/comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views", "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide", "c:/"):
+  app/controllers/comments_controller.rb:47:in `block (2 levels) in create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (3.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:04:13 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (3.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_26958792_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (58.0ms)
+Rendered pages/show.html.erb within layouts/application (456.0ms)
+Completed 200 OK in 1166ms (Views: 777.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:04:30 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"blah", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('blah', NULL, 5, '2011-09-02 03:04:30', '2011-09-02 03:04:30')
+  [1m[36mSQL (54.0ms)[0m  [1mCOMMIT[0m
+Rendered comments/create.js.erb (114.0ms)
+Completed 500 Internal Server Error in 1086ms
+
+ActionView::Template::Error (Missing partial pages/_comments with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :html], :locale=>[:en, :en]} in view paths "c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views", "c:/Ruby192/lib/ruby/gems/1.9.1/gems/devise-1.4.2/app/views"):
+    1: // here we're taking our newly created post and appending it to the list shown above
+    2: $('#comments').html("<%= escape_javascript(render :partial=>"pages/_comments") %>");
+  app/views/comments/create.js.erb:2:in `_app_views_comments_create_js_erb___675782996_32856480_309234075'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (107.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:04:50 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (42.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_58010256_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (50.0ms)
+Rendered pages/show.html.erb within layouts/application (535.0ms)
+Completed 200 OK in 1199ms (Views: 821.0ms | ActiveRecord: 49.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:05:46 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"blah", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('blah', NULL, 5, '2011-09-02 03:05:47', '2011-09-02 03:05:47')
+  [1m[36mSQL (48.0ms)[0m  [1mCOMMIT[0m
+Rendered pages/_comments.html.erb (6.0ms)
+Rendered comments/create.js.erb (92.0ms)
+Completed 500 Internal Server Error in 1065ms
+
+ActionView::Template::Error (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+    8:       	<% form_for(@comment,:remote=>true) do |f| %>
+    9: Comment:<br>
+    10: 		<%= f.text_area :comment, :rows=>5 %>
+    11: 		<%= f.hidden_field :page_id, :value=>@page.id %>
+    12: 		<%= f.submit %>
+    13: 		<%end%>
+    14:       <br>
+  app/views/pages/_comments.html.erb:11:in `block in _app_views_pages__comments_html_erb__187114655_57435864_826815690'
+  app/views/pages/_comments.html.erb:8:in `_app_views_pages__comments_html_erb__187114655_57435864_826815690'
+  app/views/comments/create.js.erb:2:in `_app_views_comments_create_js_erb___675782996_57642372_309234075'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (96.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:09:10 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_21117816_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (49.0ms)
+Rendered pages/show.html.erb within layouts/application (457.0ms)
+Completed 200 OK in 1100ms (Views: 771.0ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:09:21 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"blah", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (15.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('blah', NULL, 5, '2011-09-02 03:09:22', '2011-09-02 03:09:22')
+  [1m[36mSQL (33.0ms)[0m  [1mCOMMIT[0m
+Rendered pages/_comments.html.erb (6.0ms)
+Rendered comments/create.js.erb (94.0ms)
+Completed 500 Internal Server Error in 933ms
+
+ActionView::Template::Error (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+    8:       	<% form_for(@comment,:remote=>true) do |f| %>
+    9: Comment:<br>
+    10: 		<%= f.text_area :comment, :rows=>5 %>
+    11: 		<%= f.hidden_field :page_id, :value=>@page.id %>
+    12: 		<%= f.submit %>
+    13: 		<%end%>
+    14:       <br>
+  app/views/pages/_comments.html.erb:11:in `block in _app_views_pages__comments_html_erb__187114655_32557344_826815690'
+  app/views/pages/_comments.html.erb:8:in `_app_views_pages__comments_html_erb__187114655_32557344_826815690'
+  app/views/comments/create.js.erb:2:in `_app_views_comments_create_js_erb___675782996_32577828_309234075'
+  app/controllers/comments_controller.rb:46:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (55.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (166.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:11:00 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_31532040_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (58.0ms)
+Rendered pages/show.html.erb within layouts/application (452.0ms)
+Completed 200 OK in 1154ms (Views: 771.0ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:11:20 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"blah this sucks", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('blah this sucks', NULL, 5, '2011-09-02 03:11:21', '2011-09-02 03:11:21')
+  [1m[36mSQL (73.0ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_37088748_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+Rendered pages/_comments.html.erb (10.0ms)
+Rendered comments/create.js.erb (88.0ms)
+Completed 500 Internal Server Error in 950ms
+
+ActionView::Template::Error (undefined method `comments' for nil:NilClass):
+    14:       <br>
+    15:       </td>
+    16:     </tr>
+    17:      <% @page.comments.each_with_index do |comment| %>
+    18: 	<tr>
+    19:       <td style="vertical-align: top; background-color: rgb(255, 153, 255);">
+    20:       	<big style="font-family: Helvetica,Arial,sans-serif; color: rgb(204, 51, 204);">
+  app/views/pages/_comments.html.erb:17:in `_app_views_pages__comments_html_erb__187114655_37088748_826815690'
+  app/views/comments/create.js.erb:2:in `_app_views_comments_create_js_erb___675782996_56981880_309234075'
+  app/controllers/comments_controller.rb:46:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (99.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:13:23 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"problems with Ajax", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (15.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('problems with Ajax', NULL, 5, '2011-09-02 03:13:23', '2011-09-02 03:13:23')
+  [1m[36mSQL (77.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (id = 5)
+Rendered pages/_comments.html.erb (36.0ms)
+Rendered comments/create.js.erb (110.0ms)
+Completed 500 Internal Server Error in 1196ms
+
+ActionView::Template::Error (undefined method `id' for #<ActiveRecord::Relation:0x3af4790>):
+    8:       	<% form_for(@comment,:remote=>true) do |f| %>
+    9: Comment:<br>
+    10: 		<%= f.text_area :comment, :rows=>5 %>
+    11: 		<%= f.hidden_field :page_id, :value=>@page.id %>
+    12: 		<%= f.submit %>
+    13: 		<%end%>
+    14:       <br>
+  app/views/pages/_comments.html.erb:11:in `block in _app_views_pages__comments_html_erb__187114655_30447012_826815690'
+  app/views/pages/_comments.html.erb:8:in `_app_views_pages__comments_html_erb__187114655_30447012_826815690'
+  app/views/comments/create.js.erb:2:in `_app_views_comments_create_js_erb___675782996_30601692_309234075'
+  app/controllers/comments_controller.rb:47:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (74.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (207.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-01 21:14:11 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1[0m
+  [1m[35mBook Load (1.0ms)[0m  SELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+  [1m[36mCACHE (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_57088080_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[35mComment Load (1.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)
+Rendered pages/_comments.html.erb (57.0ms)
+Rendered pages/show.html.erb within layouts/application (526.0ms)
+Completed 200 OK in 1255ms (Views: 897.1ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:14:26 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"this is a pain", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (id = 5) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (16.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('this is a pain', NULL, 5, '2011-09-02 03:14:27', '2011-09-02 03:14:27')
+  [1m[36mSQL (49.0ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_31917312_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[35mComment Load (1.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)
+Rendered pages/_comments.html.erb (81.0ms)
+Rendered comments/create.js.erb (165.0ms)
+Completed 200 OK in 1238ms (Views: 865.1ms | ActiveRecord: 71.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:14:50 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"it worked it worked!", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (id = 5) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  BEGIN
+  [1m[36mSQL (14.0ms)[0m  [1mdescribe `comments`[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('it worked it worked!', NULL, 5, '2011-09-02 03:14:51', '2011-09-02 03:14:51')
+  [1m[36mSQL (40.0ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_32775060_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[35mComment Load (2.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)
+Rendered pages/_comments.html.erb (78.0ms)
+Rendered comments/create.js.erb (159.0ms)
+Completed 200 OK in 1204ms (Views: 820.0ms | ActiveRecord: 60.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:19:59 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"Ajax ajax ajax\r\n", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (id = 5 ORDER ID DESC) LIMIT 1[0m
+Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER ID DESC) LIMIT 1' at line 1: SELECT  `pages`.* FROM `pages` WHERE (id = 5 ORDER ID DESC) LIMIT 1
+Completed 500 Internal Server Error in 282ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER ID DESC) LIMIT 1' at line 1: SELECT  `pages`.* FROM `pages` WHERE (id = 5 ORDER ID DESC) LIMIT 1):
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.0ms)
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (151.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:20:30 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"Ajax ajax ajax\r\n", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mPage Load (3.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (id = 5) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.0ms)[0m  describe `comments`
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('Ajax ajax ajax\r\n', NULL, 5, '2011-09-02 03:20:31', '2011-09-02 03:20:31')[0m
+  [1m[35mSQL (48.0ms)[0m  COMMIT
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_29614512_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (175.0ms)
+Rendered comments/create.js.erb (258.0ms)
+Completed 200 OK in 1310ms (Views: 933.1ms | ActiveRecord: 70.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-01 21:20:45 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz/dPejSGrfa8g0VaCJP+B1Wk8bALQZZT/0hnlzBoGg=", "comment"=>{"comment"=>"I am having fun with Ajax\r\n", "page_id"=>"5"}, "commit"=>"Create Comment"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (id = 5) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.0ms)[0m  describe `comments`
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO `comments` (`comment`, `user_id`, `page_id`, `created_at`, `updated_at`) VALUES ('I am having fun with Ajax\r\n', NULL, 5, '2011-09-02 03:20:45', '2011-09-02 03:20:45')[0m
+  [1m[35mSQL (44.0ms)[0m  COMMIT
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb__187114655_29668008_826815690 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5)[0m
+Rendered pages/_comments.html.erb (80.0ms)
+Rendered comments/create.js.erb (158.0ms)
+Completed 200 OK in 1174ms (Views: 808.0ms | ActiveRecord: 63.0ms)

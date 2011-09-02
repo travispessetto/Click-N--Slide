@@ -40,12 +40,13 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new
+    @newComment = Comment.new(params[:comment])
+    @page = Page.where("id = ?", @newComment.page_id).first()
 
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+      if @newComment.save
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
