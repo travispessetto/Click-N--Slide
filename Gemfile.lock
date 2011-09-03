@@ -29,14 +29,16 @@ GEM
       activesupport (= 3.0.9)
     activesupport (3.0.9)
     arel (2.0.10)
-    bcrypt-ruby (2.1.4-x86-mingw32)
+    bcrypt-ruby (3.0.0-x86-mingw32)
     builder (2.1.2)
+    cancan (1.6.5)
     carrierwave (0.5.7)
       activesupport (~> 3.0)
-    devise (1.4.2)
-      bcrypt-ruby (~> 2.1.2)
+    devise (1.4.4)
+      bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
+    dynamic_menu (2.0.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
@@ -87,9 +89,11 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  cancan (~> 1.6.5)
   carrierwave (~> 0.5.7)
-  devise
-  jquery-rails
+  devise (~> 1.4.4)
+  dynamic_menu (~> 2.0.0)
+  jquery-rails (~> 1.0.13)
   jquery_cheats (~> 1.2.0)
   mysql2 (= 0.2.6)
   rails (= 3.0.9)

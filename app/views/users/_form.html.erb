@@ -1,0 +1,35 @@
+<%= form_for(@user) do |f| %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table>
+	<tr>
+		<td>User Name:</td>
+		<td><%= f.text_field :username %></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><%= f.password_field :password %>
+	</tr>
+	<tr>
+		<td>Confirm Password:</td>
+		<td><%= f.password_field :password_confirmation %></td>
+	</tr>
+	<tr>
+		<td>Email:</td>
+		<td><%= f.text_field :email %></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><%= f.submit "Create Account" %></td>
+	</tr>
+</table>
+<%end%>

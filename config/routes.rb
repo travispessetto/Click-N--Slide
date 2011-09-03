@@ -1,7 +1,10 @@
 Clicknslide::Application.routes.draw do
  
-  devise_for :users
 
+  devise_for :users
+  
+  resources :users
+  
   resources :comments
 
    resources :pages
@@ -9,6 +12,8 @@ Clicknslide::Application.routes.draw do
   resources :books do
     resources :pages
   end
+  
+  root :to=>"books#index"
 
 
   # The priority is based upon order of creation:

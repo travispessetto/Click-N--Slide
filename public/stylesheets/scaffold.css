@@ -16,6 +16,18 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
+div.mainmenubar a{
+	color: #FFF;
+	text-decoration: none;
+}
+
+div.mainmenubar a:hover{
+	color: #FFF;
+	text-decoration: underline;
+	background-color: transparent;
+}
+
+
 div.field, div.actions {
   margin-bottom: 10px;
 }
@@ -59,4 +71,7 @@ div.mainmenubar{
 	height: 25px;
 	color: #FFF;
 	text-align:right;
+}
+#centerImage{
+	cursor: pointer;
 }

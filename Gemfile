@@ -9,8 +9,10 @@ gem 'mysql2','0.2.6'
 gem 'jquery_cheats','~>1.2.0'
 gem 'carrierwave','~>0.5.7'
 gem 'will_paginate','~>3.0.0'
-gem 'jquery-rails'
-gem 'devise'
+gem 'jquery-rails','~>1.0.13'
+gem 'devise','~>1.4.4'
+gem 'cancan','~>1.6.5'
+gem 'dynamic_menu','~>2.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
