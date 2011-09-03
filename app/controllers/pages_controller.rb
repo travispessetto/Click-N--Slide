@@ -13,8 +13,10 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.xml
   def show
+    params[:page] ||= 1
     @page = Page.find(params[:id])
     @comment = Comment.new(:page_id=>@page.id)
+    @comments = @page.comments.paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # show.html.erb

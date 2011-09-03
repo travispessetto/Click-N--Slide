@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   mount_uploader :file, PagesUploader
   belongs_to :book
-  has_many :comments
+  has_many :comments, :order=>"id DESC"
   
   def next_page
     self.book.pages.where('id > ?', self.id).order('id').first

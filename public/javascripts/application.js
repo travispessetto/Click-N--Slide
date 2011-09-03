@@ -3,7 +3,7 @@
 var width;
 $(document).ready(function(){
 	
-	$('img').live("click",function(){
+	$('#centerImage').live("click",function(){
 		if(width){
 			$(this).css('width',width);
 			width = 0;

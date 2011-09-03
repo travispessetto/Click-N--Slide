@@ -14,7 +14,7 @@ Comment:<br>
       <br>
       </td>
     </tr>
-     <% @page.comments.each_with_index do |comment| %>
+     <% @comments.each_with_index do |comment| %>
 	<tr>
       <td style="vertical-align: top; background-color: rgb(255, 153, 255);">
       	<big style="font-family: Helvetica,Arial,sans-serif; color: rgb(204, 51, 204);">
@@ -28,3 +28,4 @@ Comment:<br>
         </div>
   </tbody>
 </table>
+<div style="text-align: right;"><%= will_paginate @comments, :remote=>true %></div>
