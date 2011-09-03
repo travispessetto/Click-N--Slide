@@ -14,4 +14,7 @@ $(document).ready(function(){
 		}
 	})
 	
+	$(".newComment form").live("submit",function(){
+		$(".newComment").html("<span>Adding Comment...Please Wait...</span>");
+	});
 });

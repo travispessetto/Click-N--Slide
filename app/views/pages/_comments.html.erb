@@ -5,12 +5,14 @@
       <td style="vertical-align: top; background-color: rgb(255, 153, 255);"><span style="color: rgb(204, 51, 204); font-family: Helvetica,Arial,sans-serif; font-weight: bold;">Add Comment</span><br>
       </td>
       <td style="vertical-align: top;">
+      	<div class="newComment">
       	<% form_for(@comment,:remote=>true) do |f| %>
 Comment:<br>
 		<%= f.text_area :comment, :rows=>5 %>
 		<%= f.hidden_field :page_id, :value=>@page.id %>
 		<%= f.submit %>
 		<%end%>
+		</div>
       <br>
       </td>
     </tr>
@@ -21,7 +23,7 @@ Comment:<br>
       		<%= #comment.user.name
        %></big><br>
       </td>
-      <td style="vertical-align: top;"><%= comment.comment %><br>
+      <td style="vertical-align: top;"><%= comment.comment.html_safe %><br>
       </td>
     </tr>
      <%end%>

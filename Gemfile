@@ -13,6 +13,10 @@ gem 'jquery-rails','~>1.0.13'
 gem 'devise','~>1.4.4'
 gem 'cancan','~>1.6.5'
 gem 'dynamic_menu','~>2.0.0'
+#for better markup---sanitizable
+gem 'nokogiri','~>1.4.4'
+#gem 'libxml2','~>2.7.2'
+gem 'sanitize'
 
 # Use unicorn as the web server
 # gem 'unicorn'

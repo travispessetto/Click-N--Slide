@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  require 'sanitize'
   # GET /comments
   # GET /comments.xml
   def index
@@ -41,6 +42,7 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     params[:page] = 1 #Must always be 1 to show new comment
+    params[:comment][:comment] = Sanitize.clean(params[:comment][:comment], Sanitize::Config::RELAXED)
     @comment = Comment.new
     @newComment = Comment.new(params[:comment])
     @page = Page.where("id = ?", @newComment.page_id).first()
