@@ -8623,3 +8623,67 @@ NameError (undefined local variable or method `http_authenticatable_on_xhr' for 
 Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
 Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.0ms)
 Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (96.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-09-03 01:00:34 -0600
+  Processing by BooksController#index as HTML
+  [1m[35mBook Load (2.0ms)[0m  SELECT `books`.* FROM `books`
+Rendered books/index.html.erb within layouts/application (76.0ms)
+Completed 200 OK in 815ms (Views: 461.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2011-09-03 01:00:38 -0600
+  Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 LIMIT 1[0m
+Rendered books/show.html.erb within layouts/application (157.0ms)
+Completed 200 OK in 1069ms (Views: 498.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/books/1/pages/5" for 127.0.0.1 at 2011-09-03 01:00:40 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"5"}
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 5 LIMIT 1
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 5) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 5) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb___300451031_34110252_1030685930 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 5) ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (2.0ms)[0m  SELECT COUNT(*) FROM `comments` WHERE (`comments`.page_id = 5)
+Rendered pages/_comments.html.erb (29.0ms)
+Rendered pages/show.html.erb within layouts/application (435.0ms)
+Completed 200 OK in 1392ms (Views: 768.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/books/1/pages/6" for 127.0.0.1 at 2011-09-03 01:00:44 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"6"}
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 6 LIMIT 1[0m
+  [1m[35mBook Load (2.0ms)[0m  SELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 6) ORDER BY id desc LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 6) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 6) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 6) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb___300451031_25534812_1030685930 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 6) ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+Rendered pages/_comments.html.erb (15.0ms)
+Rendered pages/show.html.erb within layouts/application (426.0ms)
+Completed 200 OK in 1360ms (Views: 761.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/books/1/pages/7" for 127.0.0.1 at 2011-09-03 01:00:50 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"7"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 7 LIMIT 1
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 7) ORDER BY id desc LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id < 7) ORDER BY id desc LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (`pages`.book_id = 1) AND (id > 7) ORDER BY id LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages__comments_html_erb___300451031_37158012_1030685930 at c:/Users/Travis/My Documents/Aptana Studio 3 Workspace/clicknslide/app/views/pages/_comments.html.erb:8)
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE (`comments`.page_id = 7) ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+Rendered pages/_comments.html.erb (17.0ms)
+Rendered pages/show.html.erb within layouts/application (421.0ms)
+Completed 200 OK in 1361ms (Views: 818.0ms | ActiveRecord: 8.0ms)
