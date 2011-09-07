@@ -1,22 +1,27 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2','0.2.6'
+gem 'mysql2','0.3.7'
 gem 'jquery_cheats','~>1.2.0'
 gem 'carrierwave','~>0.5.7'
-gem 'will_paginate','~>3.0.0'
+gem 'kaminari'
 gem 'jquery-rails','~>1.0.13'
 gem 'devise','~>1.4.4'
 gem 'cancan','~>1.6.5'
 gem 'dynamic_menu','~>2.0.0'
 #for better markup---sanitizable
 gem 'nokogiri','~>1.4.4'
-#gem 'libxml2','~>2.7.2'
+gem 'tinymce-rails'
 gem 'sanitize'
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'

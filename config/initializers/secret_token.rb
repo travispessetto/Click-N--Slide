@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Clicknslide::Application.config.secret_token = '9f0b25859126fae3358b40a9bfb0f392066114933b52b7fc8eddd5ddc0e38506c25af2eef083d949a68f3a0bd1921addf3ba703c99c8bef1dac4569eec5c19d8'
+Clicknslide::Application.config.secret_token = '6bc72a7d649644f2ad04f05054d065a919ba0da63d482ca599090fd620e5873c63fd30ffc0d71e5339f2a31a4f8b4cef8699a1573fbeb87a2a1b79bbcf0d26f9'

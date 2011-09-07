@@ -3,7 +3,7 @@
 	<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
 		<tr>
 			<td width="25%" style="text-align: right;"><%= link_to(mouseoverimage("/images/left.png","/images/left_hover.png"), book_page_path(@page.book_id,@page.previous_page)) if !@page.previous_page.nil? %></td>
-			<td style="text-align: center;"><%= image_tag @page.file_url,:style=>'width: 400px;', :id=>"centerImage" %></td>
+			<td style="text-align: center;"><%= image_tag @page.file_url.to_s,:style=>'width: 400px;', :id=>"centerImage" %></td>
 			<td width="25%"><%= link_to(mouseoverimage("/images/right.png","/images/right_hover.png"), book_page_path(@page.book_id,@page.next_page)) if !@page.next_page.nil? %></td>
 		</tr>
 	    <tr>

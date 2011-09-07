@@ -16,7 +16,7 @@ class PagesController < ApplicationController
     params[:page] ||= 1
     @page = Page.find(params[:id])
     @comment = Comment.new(:page_id=>@page.id)
-    @comments = @page.comments.paginate(:page => params[:page], :per_page => 10)
+    @comments = @page.comments.page(params[:page]).per(10)
     #Actions only Admin can perform
     newmenuitem("Add Page to Book", new_book_page_path) if can? :manage, :all
 

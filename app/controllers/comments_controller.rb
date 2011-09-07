@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @newComment = Comment.new(params[:comment])
     @page = Page.where("id = ?", @newComment.page_id).first()
-    @comments = @page.comments.paginate(:page => params[:page], :per_page => 10)
+    @comments = @page.comments.page(params[:page]).per(10)
 
     respond_to do |format|
       if @newComment.save

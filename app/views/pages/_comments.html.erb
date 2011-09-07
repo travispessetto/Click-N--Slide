@@ -6,9 +6,17 @@
       </td>
       <td style="vertical-align: top;">
       	<div class="newComment">
-      	<% form_for(@comment,:remote=>true) do |f| %>
+      	<%= form_for(@comment,:remote=>true) do |f| %>
 Comment:<br>
-		<%= f.text_area :comment, :rows=>5 %>
+		<%= f.text_area :comment, :rows => 5, :cols => 50 %>
+
+			<script type="text/javascript">
+			  $(function() {
+			    $('textarea').tinymce({
+			      theme: 'simple'
+			    });
+			  });
+			</script>
 		<%= f.hidden_field :page_id, :value=>@page.id %>
 		<%= f.submit %>
 		<%end%>
@@ -30,4 +38,4 @@ Comment:<br>
         </div>
   </tbody>
 </table>
-<div style="text-align: right;"><%= will_paginate @comments, :remote=>true %></div>
+<div style="text-align: right;"><%= paginate @comments, :remote=>true %></div>
