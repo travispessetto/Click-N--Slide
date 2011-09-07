@@ -14412,3 +14412,372 @@ Started POST "/comments" for 127.0.0.1 at 2011-09-07 03:05:33 -0600
 Rendered pages/_comments.html.erb (77.0ms)
 Rendered comments/create.js.erb (112.0ms)
 Completed 200 OK in 870ms (Views: 423.0ms | ActiveRecord: 133.0ms)
+
+
+Started GET "/books/1/pages/4" for 127.0.0.1 at 2011-09-07 03:06:03 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"4"}
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mBook Load (3.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 4) ORDER BY id desc LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 4) ORDER BY id desc LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id > 4) ORDER BY id LIMIT 1
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 4 ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35m (2.0ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 4
+Rendered pages/_comments.html.erb (62.0ms)
+Rendered pages/show.html.erb within layouts/application (331.0ms)
+Completed 200 OK in 998ms (Views: 475.0ms | ActiveRecord: 143.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /all.css - 404 Not Found (103ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/tinymce/preinit.js?body=1" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /tinymce/preinit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/jquery-tinymce.js?body=1" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /tinymce/jquery-tinymce.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce-jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:06:05 -0600
+Served asset /tinymce-jquery.js - 304 Not Modified (2ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-07 03:06:19 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nPBlxyOq86+H68+FMrJk47YwNnCkmocMC8WwDZglRg0=", "comment"=>{"comment"=>"<p>Testing the AJax in Chrome</p>", "page_id"=>"4"}, "commit"=>"Create Comment"}
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE (id = 4) LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `comments` (`comment`, `created_at`, `page_id`, `updated_at`, `user_id`) VALUES ('<p>Testing the AJax in Chrome</p>', '2011-09-07 09:06:20', 4, '2011-09-07 09:06:20', NULL)[0m
+  [1m[35m (128.0ms)[0m  COMMIT
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 4 ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 4
+Rendered pages/_comments.html.erb (79.0ms)
+Rendered comments/create.js.erb (117.0ms)
+Completed 200 OK in 874ms (Views: 441.0ms | ActiveRecord: 205.0ms)
+
+
+Started GET "/books/1/pages/4" for 127.0.0.1 at 2011-09-07 03:06:39 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"4"}
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 4) ORDER BY id desc LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 4) ORDER BY id desc LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id > 4) ORDER BY id LIMIT 1
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 4 ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35m (2.0ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 4
+Rendered pages/_comments.html.erb (61.0ms)
+Rendered pages/show.html.erb within layouts/application (425.0ms)
+Completed 200 OK in 939ms (Views: 503.0ms | ActiveRecord: 180.0ms)
+
+
+Started GET "/books/1/pages/1" for 127.0.0.1 at 2011-09-07 03:07:15 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"1"}
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 1) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id > 1) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id > 1) ORDER BY id LIMIT 1
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 1 ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35m (2.0ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 1
+Rendered pages/_comments.html.erb (69.0ms)
+Rendered pages/show.html.erb within layouts/application (326.0ms)
+Completed 200 OK in 976ms (Views: 465.0ms | ActiveRecord: 189.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /all.css - 404 Not Found (22ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/tinymce/preinit.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /tinymce/preinit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/jquery-tinymce.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /tinymce/jquery-tinymce.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce-jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:17 -0600
+Served asset /tinymce-jquery.js - 304 Not Modified (3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2011-09-07 03:07:19 -0600
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nPBlxyOq86+H68+FMrJk47YwNnCkmocMC8WwDZglRg0="}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 554ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-09-07 03:07:20 -0600
+  Processing by BooksController#index as HTML
+  [1m[35mBook Load (2.0ms)[0m  SELECT `books`.* FROM `books` 
+Rendered books/index.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 781ms (Views: 223.0ms | ActiveRecord: 318.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /all.css - 404 Not Found (23ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/tinymce/preinit.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /tinymce/preinit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/jquery-tinymce.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /tinymce/jquery-tinymce.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce-jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:22 -0600
+Served asset /tinymce-jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2011-09-07 03:07:24 -0600
+  Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `books`.* FROM `books` WHERE `books`.`id` =   LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 LIMIT 1[0m
+Rendered books/show.html.erb within layouts/application (388.0ms)
+Completed 200 OK in 973ms (Views: 561.0ms | ActiveRecord: 103.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/tinymce/preinit.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /tinymce/preinit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /all.css - 404 Not Found (22ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/tinymce/jquery-tinymce.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /tinymce/jquery-tinymce.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce-jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:26 -0600
+Served asset /tinymce-jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/books/1/pages/1" for 127.0.0.1 at 2011-09-07 03:07:28 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"1"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 1 LIMIT 1
+  [1m[36mBook Load (2.0ms)[0m  [1mSELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 1) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id > 1) ORDER BY id LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id > 1) ORDER BY id LIMIT 1
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 1 ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 1
+Rendered pages/_comments.html.erb (59.0ms)
+Rendered pages/show.html.erb within layouts/application (640.0ms)
+Completed 200 OK in 1159ms (Views: 768.0ms | ActiveRecord: 139.0ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at 2011-09-07 03:07:29 -0600
+Served asset /all.css - 404 Not Found (22ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:30 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:30 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:30 -0600
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/tinymce/preinit.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:30 -0600
+Served asset /tinymce/preinit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-09-07 03:07:30 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/tinymce/jquery-tinymce.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:30 -0600
+Served asset /tinymce/jquery-tinymce.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce-jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:30 -0600
+Served asset /tinymce-jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/books/1/pages/4" for 127.0.0.1 at 2011-09-07 03:07:34 -0600
+  Processing by PagesController#show as HTML
+  Parameters: {"book_id"=>"1", "id"=>"4"}
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 4 LIMIT 1[0m
+  [1m[35mBook Load (3.0ms)[0m  SELECT `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 4) ORDER BY id desc LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id < 4) ORDER BY id desc LIMIT 1
+  [1m[36mPage Load (2.0ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`book_id` = 1 AND (id > 4) ORDER BY id LIMIT 1[0m
+  [1m[35mComment Load (2.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 4 ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 4[0m
+Rendered pages/_comments.html.erb (65.0ms)
+Rendered pages/show.html.erb within layouts/application (322.0ms)
+Completed 200 OK in 901ms (Views: 522.0ms | ActiveRecord: 141.0ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at 2011-09-07 03:07:36 -0600
+Served asset /all.css - 404 Not Found (41ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/tinymce/preinit.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:37 -0600
+Served asset /tinymce/preinit.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:37 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-09-07 03:07:37 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:37 -0600
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:37 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/jquery-tinymce.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:37 -0600
+Served asset /tinymce/jquery-tinymce.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce-jquery.js?body=1" for 127.0.0.1 at 2011-09-07 03:07:37 -0600
+Served asset /tinymce-jquery.js - 304 Not Modified (3ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-07 03:07:50 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+pklJs+gf6nMG/Xo3zPxhJXQdnpon6sG/hg/oGcDk8I=", "comment"=>{"comment"=>"<p>Testing while logged out.</p>", "page_id"=>"4"}, "commit"=>"Create Comment"}
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (id = 4) LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `comments` (`comment`, `created_at`, `page_id`, `updated_at`, `user_id`) VALUES ('<p>Testing while logged out.</p>', '2011-09-07 09:07:51', 4, '2011-09-07 09:07:51', NULL)
+  [1m[36m (52.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mComment Load (2.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 4 ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 4[0m
+Rendered pages/_comments.html.erb (79.0ms)
+Rendered comments/create.js.erb (120.0ms)
+Completed 200 OK in 775ms (Views: 450.0ms | ActiveRecord: 124.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2011-09-07 03:08:19 -0600
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+pklJs+gf6nMG/Xo3zPxhJXQdnpon6sG/hg/oGcDk8I=", "comment"=>{"comment"=>"<ul>\r\n<li>List item one</li>\r\n<li>List item two</li>\r\n</ul>", "page_id"=>"4"}, "commit"=>"Create Comment"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT `pages`.* FROM `pages` WHERE (id = 4) LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `comments` (`comment`, `created_at`, `page_id`, `updated_at`, `user_id`) VALUES ('<ul>\n<li>List item one</li>\r\n<li>List item two</li>\r\n</ul>', '2011-09-07 09:08:20', 4, '2011-09-07 09:08:20', NULL)
+  [1m[36m (89.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mComment Load (2.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`page_id` = 4 ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM `comments` WHERE `comments`.`page_id` = 4[0m
+Rendered pages/_comments.html.erb (75.0ms)
+Rendered comments/create.js.erb (112.0ms)
+Completed 200 OK in 776ms (Views: 420.0ms | ActiveRecord: 157.0ms)
