@@ -4,8 +4,11 @@ module ApplicationHelper
     html = ""
     html += admin_functions
     html += link_to("Books",books_path)
-    html += link_to(" | Sign In",new_user_session_path) if current_user.nil?
-    html += link_to(" | Sign Out",destroy_user_session_path,:method=>:delete) if !current_user.nil?
+    if current_user.nil?
+      html += " |"+link_to(" Sign In",new_user_session_path)
+      html += " | | " + link_to("Sign Up",new_user_path)
+    end
+    html += " |"+link_to(" Sign Out",destroy_user_session_path,:method=>:delete) if !current_user.nil?
     
     return html.html_safe
   end

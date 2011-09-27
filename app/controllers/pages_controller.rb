@@ -21,6 +21,7 @@ class PagesController < ApplicationController
     newmenuitem("Add Page to Book", new_book_page_path) if can? :manage, :all
 
     respond_to do |format|
+      format.js # show.js.erb
       format.html # show.html.erb
       format.xml  { render :xml => @page }
     end

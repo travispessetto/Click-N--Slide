@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comments = Comment.all
 
     respond_to do |format|
+      format.js
       format.html # index.html.erb
       format.xml  { render :xml => @comments }
     end
